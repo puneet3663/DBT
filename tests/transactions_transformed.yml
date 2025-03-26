@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: transactions_transformed
+    description: "Processed transactions with revenue calculation."
+    columns:
+      - name: order_id
+        description: "Unique identifier for the order."
+        tests:
+          - not_null
+          - unique
+
+      - name: product_id
+        description: "ID of the product."
+        tests:
+          - not_null
+
+      - name: revenue
+        description: "Calculated revenue (price * quantity)."
+        tests:
+          - not_null
+          - greater_than: 
+              value: 0
