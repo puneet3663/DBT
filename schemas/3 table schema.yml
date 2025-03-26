@@ -1,0 +1,48 @@
+version: 2
+
+models:
+  - name: transactions_transformed
+    description: "Processed transactions with revenue calculation."
+    columns:
+      - name: order_id
+        description: "Unique identifier for the order."
+        tests:
+          - not_null
+          - unique
+
+      - name: revenue
+        description: "Revenue calculated as price * quantity."
+        tests:
+          - not_null
+          - greater_than:
+              value: 0
+
+  - name: product_revenue_summary
+    description: "Aggregated revenue for each product."
+    columns:
+      - name: product_id
+        description: "Product ID."
+        tests:
+          - not_null
+
+      - name: total_revenue
+        description: "Total revenue summed across all transactions."
+        tests:
+          - not_null
+          - greater_than:
+              value: 0
+
+  - name: customer_spending_summary
+    description: "Aggregated spending per customer."
+    columns:
+      - name: customer_id
+        description: "Unique customer identifier."
+        tests:
+          - not_null
+
+      - name: total_spent
+        description: "Total amount spent by the customer."
+        tests:
+          - not_null
+          - greater_than:
+              value: 0
