@@ -1,14 +1,51 @@
 go to [conda.io/miniconda](https://anaconda.com/api/installers/Miniconda3-latest-Windows-x86_64.exe)
 
+open Anaconda
+cd /d D:\dbtproject
+
 check
 conda --version
+
+conda create -n dbt_duck python=3.11 -y
+conda activate dbt_duck
 
 conda create -n dbt-env python=3.11 -y
 conda activate dbt-env
 
+pip install dbt-duckdb
+
 pip install dbt-core dbt-duckdb
 
 dbt --version
+
+python -c "import duckdb; print(duckdb.__version__)"
+
+Open VS Code from this same Anaconda Prompt (don't open VS Code from Start menu)
+
+cd D:\dbtproject
+code .
+
+inside vscode terminal under d:/dbtproject
+
+This is important — launching VS Code this way makes the integrated terminal inherit your activated conda env automatically.
+
+mkdir %USERPROFILE%\.dbt
+notepad %USERPROFILE%\.dbt\profiles.yml
+
+in the opened notepad, paste below
+
+my_dbt_project:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: D:/dbtproject/mydb.duckdb
+      threads: 4
+
+
+cd D:\dbtproject\my_dbt_project
+dbt debug
+
 
 cd C:\Users\YourName\Documents
 dbt init my_project
@@ -35,6 +72,27 @@ id,name,department,salary
 4,Dave,HR,65000
 
 dbt seed
+
+<img width="1337" height="682" alt="image" src="https://github.com/user-attachments/assets/72957d86-9906-4c75-aa4c-8c27242b5129" />
+
+dbt show --select employees
+
+models/staging/stg_employees.sql
+
+with source as (
+    select * from {{ ref('employees') }}
+)
+select
+    id                              as employee_id,
+    name                            as employee_name,
+    department                      as department,
+    cast(salary as decimal(10, 2))  as salary
+from source
+
+
+dbt run --select stg_employees
+
+
 
 
 Create a model — models/dept_summary.sql
