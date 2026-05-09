@@ -3,6 +3,9 @@
 
 edr report --profiles-dir %USERPROFILE%\.dbt --profile-target dev --project-dir D:\dbtproject\my_dbt_project
 
+edr report --profiles-dir C:\Users\yuvan\.dbt --profile-target dev --project-dir D:\dbtproject\my_dbt_project
+
+
 <img width="1191" height="529" alt="image" src="https://github.com/user-attachments/assets/4b81329f-db9a-4221-a27e-d4ac1e2b7b8e" />
 
 <img width="1826" height="1055" alt="image" src="https://github.com/user-attachments/assets/537fb934-4df0-418a-86f5-900c03a17ab0" />
