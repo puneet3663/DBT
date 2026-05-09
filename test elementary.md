@@ -7,3 +7,7 @@ edr report --profiles-dir %USERPROFILE%\.dbt --profile-target dev --project-dir 
 
 <img width="1826" height="1055" alt="image" src="https://github.com/user-attachments/assets/537fb934-4df0-418a-86f5-900c03a17ab0" />
 
+<img width="1823" height="929" alt="image" src="https://github.com/user-attachments/assets/ffee35ae-a1ae-4bb1-aca1-54633387b0c7" />
+
+<img width="1826" height="968" alt="image" src="https://github.com/user-attachments/assets/3f281b32-04fc-4d03-bc85-a6257618d1a5" />
+
