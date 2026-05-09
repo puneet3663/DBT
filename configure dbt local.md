@@ -1,4 +1,4 @@
-go to conda.io/miniconda
+go to [conda.io/miniconda](https://anaconda.com/api/installers/Miniconda3-latest-Windows-x86_64.exe)
 
 check
 conda --version
